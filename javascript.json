@@ -1,0 +1,143 @@
+{
+
+/*
+	RamdaJs extension
+*/
+
+"Ramda special" : {
+	"prefix": "R.__",
+	"body": [
+		"R.__"
+	],
+	"description": "A special placeholder value used to specify 'gaps' within curried functions, allowing partial application of any combination of arguments, regardless of their positions."
+},
+
+"Ramda add": {
+	"prefix": "R.add",
+	"body": [
+		"R.add( $1, $2)"
+	],
+	"description":"Adds two values."
+},
+
+"Ramda addIndex": {
+	"prefix": "R.addIndex",
+	"body":[
+		"R.addIndex($R.map)"
+	],
+	"description": "Creates a new list iteration function from an existing one by adding two new parameters to its callback function: the current index, and the entire list.This would turn, for instance, Ramda's simple map function into one that more closely resembles Array.prototype.map. Note that this will only work for functions in which the iteration callback function is the first parameter, and where the list is the last parameter. (This latter might be unimportant if the list parameter is not used.)"
+},
+
+"Ramda adjust": {
+	"prefix": "R.adjust",
+	"body": [
+		"R.adjust($1, $2, $3)"
+	],
+	"description": "Applies a function to the value at the given index of an array, returning a new copy of the array with the element at the given index replaced with the result of the function application."
+},
+
+"Ramda all": {
+	"prefix":"R.all",
+	"body": [
+		"R.all($predicate)($list);"
+	],
+	"description": "Returns true if all elements of the list match the predicate, false if there are any that don't Dispatches to the all method of the second argument, if present.Acts as a transducer if a transformer is given in list position."
+},
+
+"Ramda allPass": {
+	"prefix":"R.allPass",
+	"body": [
+		"R.allPass([$predicates])"
+	],
+	"description": "Takes a list of predicates and returns a predicate that returns true for a given list of arguments if every one of the provided predicates is satisfied by those arguments.The function returned is a curried function whose arity matches that of the highest-arity predicate."
+},
+
+"Ramda always": {
+	"prefix": "R.always",
+	"body": [
+		"R.always($value)"
+	],
+	"description": "Returns a function that always returns the given value. Note that for non-primitives the value returned is a reference to the original value.This function is known as const, constant, or K (for K combinator) in other languages and libraries."
+},
+
+"Ramda and": {
+	"prefix": "R.and",
+	"body": ["R.and($val1,$val2)"],
+	"description": "Returns true if both arguments are true; false otherwise."
+},
+
+"Ramda any": {
+	"prefix": "R.any",
+	"body": ["R.any($predicate)($list);"],
+	"description":"Returns true if at least one of elements of the list match the predicate, false otherwise. Dispatches to the any method of the second argument, if present.Acts as a transducer if a transformer is given in list position."
+},
+
+"Ramda anyPass": {
+	"prefix": "R.anyPass",
+	"body": ["R.anyPass($list)"],
+	"description": "Takes a list of predicates and returns a predicate that returns true for a given list of arguments if at least one of the provided predicates is satisfied by those arguments.The function returned is a curried function whose arity matches that of the highest-arity predicate."
+},
+
+"Ramda ap": {
+	"prefix": "R.ap",
+	"body": ["R.ap($functionList,$list)"],
+	"description": "ap applies a list of functions to a list of values.Dispatches to the ap method of the second argument, if present. Also treats curried functions as applicatives."
+},
+
+"Ramda appeture": {
+	"prefix": "R.aperture",
+	"body": ["R.aperture($n,$list)"],
+	"description": "Returns a new list, composed of n-tuples of consecutive elements If n is greater than the length of the list, an empty list is returned.Dispatches to the aperture method of the second argument, if present.Acts as a transducer if a transformer is given in list position."
+},
+
+"Ramda append": {
+	"prefix": "R.append",
+	"body": ["R.append($elem,$list)"],
+	"description": "Returns a new list containing the contents of the given list, followed by the given element."
+},
+
+"Ramda apply": {
+	"prefix":"R.apply",
+	"body": ["R.apply($fn,$list)"],
+	"description": "Applies function fn to the argument list args. This is useful for creating a fixed-arity function from a variadic function. fn should be a bound function if context is significant."
+},
+
+"Ramda applySpec": {
+	
+	"prefix": "R.applySpec",
+	"body": ["R.applySpec({ $key: $valuefn })"],
+	"description": "Given a spec object recursively mapping properties to functions, creates a function producing an object of the same structure, by mapping each property to the result of calling its associated function with the supplied arguments."
+},
+
+"Ramda assoc": {
+	"prefix": "R.assoc",
+	"body": ["R.assoc($key,$value,$obj)"],
+	"description": "Makes a shallow clone of an object, setting or overriding the specified property with the given value. Note that this copies and flattens prototype properties onto the new object as well. All non-primitive properties are copied by reference."
+},
+
+
+"Ramda assocPath": {
+	"prefix": "R.assocPath",
+	"body": [" R.assocPath($list,$value,$obj) "],
+	"description": "Makes a shallow clone of an object, setting or overriding the nodes required to create the given path, and placing the specific value at the tail end of that path. Note that this copies and flattens prototype properties onto the new object as well. All non-primitive properties are copied by reference."
+},
+
+"Ramda binary": {
+	"prefix": "R.binary",
+	"body": ["R.binary($fn_with_two_parameter)"],
+	"description": "Wraps a function of any arity (including nullary) in a function that accepts exactly 2 parameters. Any extraneous parameters will not be passed to the supplied function."
+},
+
+"Ramda bind": {
+	"prefix": "R.bind",
+	"body": "R.bind($fn)",
+	"description": "Creates a function that is bound to a context. Note: R.bind does not provide the additional argument-binding capabilities of Function.prototype.bind."
+},
+
+"Ramda both": {
+	"prefix": "R.both",
+	"body": "R.both($fn1,$fn2)",
+	"description": "A function wrapping calls to the two functions in an && operation, returning the result of the first function if it is false-y and the result of the second function otherwise. Note that this is short-circuited, meaning that the second function will not be invoked if the first returns a false-y value.In addition to functions, R.both also accepts any fantasy-land compatible applicative functor."
+}
+
+}
