@@ -136,10 +136,358 @@
 
 "Ramda both": {
 	"prefix": "R.both",
-	"body": "R.both($fn1,$fn2)",
+	"body": ["R.both($fn1,$fn2)"],
 	"description": "A function wrapping calls to the two functions in an && operation, returning the result of the first function if it is false-y and the result of the second function otherwise. Note that this is short-circuited, meaning that the second function will not be invoked if the first returns a false-y value.In addition to functions, R.both also accepts any fantasy-land compatible applicative functor."
 },
 
+"Ramda call" : {
+	"prefix": "R.call",
+	"body": ["R.call"],
+	"description": "Returns the result of calling its first argument with the remaining arguments. This is occasionally useful as a converging function for R.converge: the left branch can produce a function while the right branch produces a value to be passed to that function as an argument."
+},
+
+"Ramda chain" : {
+	"prefix": "R.chain",
+	"body": ["R.chain($fn,$List)"],
+	"description":"chain maps a function over a list and concatenates the results. chain is also known as flatMap in some librariesDispatches to the chain method of the second argument, if present, according to the FantasyLand Chain spec."
+},
+
+"Ramda clamp" : {
+	"prefix": "R.clamp",
+	"body":["R.clamp($number,$range1,$range2)"],
+	"description":"Restricts a number to be within a range.Also works for other ordered types such as Strings and Dates."
+},
+
+"Ramda clone": {
+	"prefix": "R.clone",
+	"body":["R.clone($Obj)"],
+	"description":"Creates a deep copy of the value which may contain (nested) Arrays and Objects, Numbers, Strings, Booleans and Dates. Functions are not copied, but assigned by their reference.Dispatches to a clone method if present."
+},
+
+"Ramda comparator": {
+	"prefix": "R.comparator",
+	"body":["R.comparator($fn)"],
+	"description":"Makes a comparator function out of a function that reports whether the first element is less than the second."
+},
+
+"Ramda complement": {
+	"prefix": "R.complement",
+	"body":["R.complement($fn)"],
+	"description":"Takes a function f and returns a function g such that:\n-applying g to zero or more arguments will give true if applying the same arguments to f gives a logical false value; and\n-applying g to zero or more arguments will give false if applying the same arguments to f gives a logical true value.\nR.complement will work on all other functors as well"
+},
+
+"Ramda componse": {
+	"prefix": "R.compose",
+	"body":["R.compose($fn1,$fn2,$fn3)"],
+	"description":"Performs right-to-left function composition. The rightmost function may have any arity; the remaining functions must be unary.\nNote: The result of compose is not automatically curried."
+},
+
+"Ramda composeK": {
+	"prefix": "R.composeK",
+	"body":["R.composeK($fn1,$fn2,$fn3)"],
+	"description":"Returns the right-to-left Kleisli composition of the provided functions, each of which must return a value of a type supported by chain.R.composeK(h, g, f) is equivalent to R.compose(R.chain(h), R.chain(g), R.chain(f))."
+},
+
+"Ramda composeP": {
+	"prefix": "R.composeP",
+	"body":["R.composeP($fn1,$fn2)"],
+	"description":"Performs right-to-left composition of one or more Promise-returning functions. The rightmost function may have any arity; the remaining functions must be unary."
+},
+
+"Ramda concat": {
+	"prefix": "R.concat",
+	"body":["R.concat($val1,$val2)"],
+	"description":"Returns the result of concatenating the given lists or strings.\nNote: R.concat expects both arguments to be of the same type, unlike the native Array.prototype.concat method. It will throw an error if you concat an Array with a non-Array value.Dispatches to the concat method of the first argument, if present."
+},
+
+"Ramda cond": {
+	"prefix": "R.cond",
+	"body":["R.cond([$predicate,$transform])"],
+	"description":"Returns a function, fn, which encapsulates if/else-if/else logic. R.cond takes a list of [predicate, transform] pairs. All of the arguments to fn are applied to each of the predicates in turn until one returns a "truthy" value, at which point fn returns the result of applying its arguments to the corresponding transformer. If none of the predicates matches, fn returns undefined."
+},
+
+"Ramda construct": {
+	"prefix": "R.construct",
+	"body":["R.construct($fn)"],
+	"description":"Wraps a constructor function inside a curried function that can be called with the same arguments and returns the same type."
+},
+
+"Ramda constructN": {
+	"prefix": "R.constructN",
+	"body":["R.constructN($val,$fn)"],
+	"description":"Wraps a constructor function inside a curried function that can be called with the same arguments and returns the same type. The arity of the function returned is specified to allow using variadic constructor functions."
+},
+
+"Ramda contains": {
+	"prefix": "R.contains",
+	"body":["R.contains($val,$List)"],
+	"description":"Returns true if the specified value is equal, in R.equals terms, to at least one element of the given list; false otherwise."
+},
+
+"Ramda converge": {
+	"prefix": "R.converge",
+	"body":["R.converge($fn,$Listoffn)"],
+	"description":"Accepts a converging function and a list of branching functions and returns a new function. When invoked, this new function is applied to some arguments, each branching function is applied to those same arguments. The results of each branching function are passed as arguments to the converging function to produce the return value."
+},
+
+"Ramda countBy": {
+	"prefix": "R.countBy",
+	"body":["R.countBy($fn)($List)"],
+	"description":"Counts the elements of a list according to how many match each value of a key generated by the supplied function. Returns an object mapping the keys produced by fn to the number of occurrences in the list. Note that all keys are coerced to strings because of how JavaScript objects work.\nActs as a transducer if a transformer is given in list position."
+},
+
+"Ramda curry": {
+	"prefix": "R.curry",
+	"body":["R.curry($fn)"],
+	"description":"Returns a curried equivalent of the provided function. The curried function has two unusual capabilities. First, its arguments needn't be provided one at a time."
+},
+
+"Ramda curryN": {
+	"prefix": "R.curryN",
+	"body":["R.curryN($num,$fn)"],
+	"description":"Returns a curried equivalent of the provided function, with the specified arity. The curried function has two unusual capabilities. First, its arguments needn't be provided one at a time"
+},
+
+"Ramda dec": {
+	"prefix": "R.dec",
+	"body":["R.dec($num)"],
+	"description":"Decrements its argument."
+},
+
+"Ramda defaultTo": {
+	"prefix": "R.defaultTo",
+	"body":["R.defaultTo($defaultVal)"],
+	"description":"Returns the second argument if it is not null, undefined or NaN otherwise the first argument is returned."
+},
+
+"Ramda difference": {
+	"prefix": "R.difference",
+	"body":["R.difference($List1,$List2)"],
+	"description":"Finds the set (i.e. no duplicates) of all elements in the first list not contained in the second list."
+},
+
+"Ramda differenceWith": {
+	"prefix": "R.differenceWith",
+	"body":["R.differenceWith($fn,$List1,$List2)"],
+	"description":"Finds the set (i.e. no duplicates) of all elements in the first list not contained in the second list. Duplication is determined according to the value returned by applying the supplied predicate to two list elements."
+},
+
+"Ramda dissoc": {
+	"prefix": "R.dissoc",
+	"body":["R.dissoc($key,$Obj)"],
+	"description":"Returns a new object that does not contain a prop property."
+},
+
+"Ramda dissocPath": {
+	"prefix": "R.dissocPath",
+	"body":["R.dissocPath($List,$Obj)"],
+	"description":"Makes a shallow clone of an object, omitting the property at the given path. Note that this copies and flattens prototype properties onto the new object as well. All non-primitive properties are copied by reference."
+},
+
+"Ramda divide": {
+	"prefix": "R.divide",
+	"body":["R.divide($Num1,$Num2)"],
+	"description":"Divides two numbers. Equivalent to a / b."
+},
+
+"Ramda drop": {
+	"prefix": "R.drop",
+	"body":["R.drop($n,$List)"],
+	"description":"Returns all but the first n elements of the given list, string, or transducer/transformer (or object with a drop method).Dispatches to the drop method of the second argument, if present."
+},
+
+"Ramda dropLast": {
+	"prefix": "R.dropLast",
+	"body":["R.dropLast($n,$List)"],
+	"description":"Returns a list containing all but the last n elements of the given list."
+},
+
+"Ramda dropLastWhile": {
+	"prefix": "R.dropLastWhile",
+	"body":["R.dropLastWhile($predicate,$List)"],
+	"description":"Returns a new list excluding all the tailing elements of a given list which satisfy the supplied predicate function. It passes each value from the right to the supplied predicate function, skipping elements while the predicate function returns true. The predicate function is applied to one argument: (value)."
+},
+
+"Ramda dropRepeats": {
+	"prefix": "R.dropRepeats",
+	"body":["R.dropRepeats($List)"],
+	"description":"Returns a new list without any consecutively repeating elements. R.equals is used to determine equality.Dispatches to the dropRepeats method of the first argument, if present.Acts as a transducer if a transformer is given in list position."
+},
+
+"Ramda dropRepeatsWith": {
+	"prefix": "R.dropRepeatsWith",
+	"body":["R.dropRepeatsWith($fn,$List)"],
+	"description":"Returns a new list without any consecutively repeating elements. Equality is determined by applying the supplied predicate two consecutive elements. The first element in a series of equal element is the one being preserved.Dispatches to the dropRepeatsWith method of the second argument, if present.Acts as a transducer if a transformer is given in list position."
+},
+
+"Ramda dropWhile": {
+	"prefix": "R.dropWhile",
+	"body":["R.dropWhile($fn,$List)"],
+	"description":"Returns a new list excluding the leading elements of a given list which satisfy the supplied predicate function. It passes each value to the supplied predicate function, skipping elements while the predicate function returns true. The predicate function is applied to one argument: (value).Dispatches to the dropWhile method of the second argument, if present.Acts as a transducer if a transformer is given in list position."
+},
+
+"Ramda either": {
+	"prefix": "R.either",
+	"body":["R.either($fn1,$fn2)"],
+	"description":"A function wrapping calls to the two functions in an || operation, returning the result of the first function if it is truth-y and the result of the second function otherwise. Note that this is short-circuited, meaning that the second function will not be invoked if the first returns a truth-y value.In addition to functions, R.either also accepts any fantasy-land compatible applicative functor."
+},
+
+"Ramda empty": {
+	"prefix": "R.empty",
+	"body":["R.empty($val)"],
+	"description":"Returns the empty value of its argument's type. Ramda defines the empty value of Array ([]), Object ({}), String (''), and Arguments. Other types are supported if they define <Type>.empty and/or <Type>.prototype.empty.Dispatches to the empty method of the first argument, if present."
+},
+
+"Ramda eqBy": {
+	"prefix": "R.eqBy",
+	"body":["R.eqBy($fn,$val1,$val2)"],
+	"description":"Takes a function and two values in its domain and returns true if the values map to the same value in the codomain; false otherwise."
+},
+
+"Ramda eqProps": {
+	"prefix": "R.eqProps",
+	"body":["R.eqProps($key,$Obj1,$Obj2)"],
+	"description":"Reports whether two objects have the same value, in R.equals terms, for the specified property. Useful as a curried predicate."
+},
+
+"Ramda equals": {
+	"prefix": "R.equals",
+	"body":["R.equals($Val1,$Val2)"],
+	"description":"Returns true if its arguments are equivalent, false otherwise. Handles cyclical data structures.Dispatches symmetrically to the equals methods of both arguments, if present."
+},
+
+"Ramda evolve": {
+	"prefix": "R.evolve",
+	"body":["R.evolve($fn,$Obj)"],
+	"description":"Creates a new object by recursively evolving a shallow copy of object, according to the transformation functions. All non-primitive properties are copied by reference.A transformation function will not be invoked if its corresponding key does not exist in the evolved object."
+},
+
+"Ramda F": {
+	"prefix": "R.F",
+	"body":["R.F()"],
+	"description":"A function that always returns false. Any passed in parameters are ignored."
+},
+
+"Ramda filter": {
+	"prefix": "R.filter",
+	"body":["R.filter"],
+	"description":"Takes a predicate and a 'filterable', and returns a new filterable of the same type containing the members of the given filterable which satisfy the given predicate.Dispatches to the filter method of the second argument, if present.Acts as a transducer if a transformer is given in list position."
+},
+
+"Ramda find": {
+	"prefix": "R.find",
+	"body":["R.find($predicate)($List)"],
+	"description":"Returns the first element of the list which matches the predicate, or undefined if no element matches.Dispatches to the find method of the second argument, if present.Acts as a transducer if a transformer is given in list position."
+},
+
+"Ramda findIndex": {
+	"prefix": "R.findIndex",
+	"body":["R.findIndex($predicate)($List)"],
+	"description":"Returns the index of the first element of the list which matches the predicate, or -1 if no element matches.Dispatches to the findIndex method of the second argument, if present.Acts as a transducer if a transformer is given in list position."
+},
+
+"Ramda findLast": {
+	"prefix": "R.findLast",
+	"body":["R.findLast($predicate)($List)"],
+	"description":"Returns the last element of the list which matches the predicate, or undefined if no element matches.Dispatches to the findLast method of the second argument, if present.Acts as a transducer if a transformer is given in list position."
+},
+
+"Ramda findLastIndex": {
+	"prefix": "R.findLastIndex",
+	"body":["R.findLastIndex($predicate)($List)"],
+	"description":"Returns the index of the last element of the list which matches the predicate, or -1 if no element matches.Dispatches to the findLastIndex method of the second argument, if present.Acts as a transducer if a transformer is given in list position."
+},
+
+"Ramda flatten": {
+	"prefix": "R.flatten",
+	"body":["R.flatten($List)"],
+	"description":"Returns a new list by pulling every item out of it (and all its sub-arrays) and putting them in a new array, depth-first."
+},
+
+"Ramda flip": {
+	"prefix": "R.flip",
+	"body":["R.flip($fn)($List)"],
+	"description":"Returns a new function much like the supplied one, except that the first two arguments' order is reversed."
+},
+
+"Ramda forEach": {
+	"prefix": "R.forEach",
+	"body":["R.forEach($fn,$List)"],
+	"description":"Iterate over an input list, calling a provided function fn for each element in the list.fn receives one argument: (value).\nNote: R.forEach does not skip deleted or unassigned indices (sparse arrays), unlike the native Array.prototype.forEach method. For more details on this behavior, see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach#DescriptionAlso note that, unlike Array.prototype.forEach, Ramda's forEach returns the original array. In some libraries this function is named each.Dispatches to the forEach method of the second argument, if present."
+},
+
+"Ramda fromPairs": {
+	"prefix": "R.fromPairs",
+	"body":["R.fromPairs($List)"],
+	"description":"Creates a new object from a list key-value pairs. If a key appears in multiple pairs, the rightmost pair is included in the object."
+},
+
+"Ramda groupBy": {
+	"prefix": "R.groupBy",
+	"body":["R.groupBy($fn)($List)"],
+	"description":"Splits a list into sub-lists stored in an object, based on the result of calling a String-returning function on each element, and grouping the results according to values returned.Dispatches to the groupBy method of the second argument, if present.Acts as a transducer if a transformer is given in list position"
+},
+
+"Ramda groupWith": {
+	"prefix": "R.groupWith",
+	"body":["R.groupWith($fn,$List)"],
+	"description":"Takes a list and returns a list of lists where each sublist's elements are all "equal" according to the provided equality function."
+},
+
+"Ramda gt": {
+	"prefix": "R.gt",
+	"body":["R.gt($val1,$val2)"],
+	"description":"Returns true if the first argument is greater than the second; false otherwise."
+},
+
+"Ramda gte": {
+	"prefix": "R.gte",
+	"body":["R.gte($val1,$val2)"],
+	"description":"Returns true if the first argument is greater than or equal to the second; false otherwise."
+},
+
+"Ramda has": {
+	"prefix": "R.has",
+	"body":["R.has($key)($Obj)"],
+	"description":"Returns whether or not an object has an own property with the specified name"
+},
+
+"Ramda hasIn": {
+	"prefix": "R.hasIn",
+	"body":["R.hasIn($name,$Obj)"],
+	"description":"Returns whether or not an object or its prototype chain has a property with the specified name"
+},
+
+"Ramda head": {
+	"prefix": "R.head",
+	"body":["R.head($Val)"],
+	"description":"Returns the first element of the given list or string. In some libraries this function is named first."
+},
+
+
+// "Ramda ": {
+// 	"prefix": "R.",
+// 	"body":["R."],
+// 	"description":""
+// },
+
+"Ramda when": {
+	"prefix": "R.when",
+	"body":["R.when($preficatefns)($Val)"],
+	"description":"Tests the final argument by passing it to the given predicate function. If the predicate is satisfied, the function will return the result of calling the whenTrueFn function with the same argument. If the predicate is not satisfied, the argument is returned as is."
+},
+
+"Ramda where": {
+	"prefix": "R.where",
+	"body":["R.where($spec)($Obj2)"],
+	"description":"Takes a spec object and a test object; returns true if the test satisfies the spec. Each of the spec's own properties must be a predicate function. Each predicate is applied to the value of the corresponding property of the test object. where returns true if all the predicates return true, false otherwise.where is well suited to declaratively expressing constraints for other functions such as filter and find."
+},
+
+"Ramda whereEq": {
+	"prefix": "R.whereEq",
+	"body":["R.whereEq($Obj1)($Obj2)"],
+	"description":"Takes a spec object and a test object; returns true if the test satisfies the spec, false otherwise. An object satisfies the spec if, for each of the spec's own properties, accessing that property of the object gives the same value (in R.equals terms) as accessing that property of the spec.whereEq is a specialization of where."
+},
 
 "Ramda without": {
 	"prefix": "R.without",
