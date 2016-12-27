@@ -431,7 +431,7 @@
 "Ramda groupWith": {
 	"prefix": "R.groupWith",
 	"body":["R.groupWith($fn,$List)"],
-	"description":"Takes a list and returns a list of lists where each sublist's elements are all "equal" according to the provided equality function."
+	"description":"Takes a list and returns a list of lists where each sublist's elements are all 'equal' according to the provided equality function."
 },
 
 "Ramda gt": {
