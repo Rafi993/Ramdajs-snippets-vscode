@@ -7,7 +7,6 @@
     "engines": {
         "vscode": "^1.5.0"
     },
-    "icon": "ramdalogo.png",
     "categories": [
         "Snippets"
     ],
