@@ -7,7 +7,7 @@
     "engines": {
         "vscode": "^1.5.0"
     },
-    "icon": "ramdalogo.png",
+    "icon": "https://github.com/Rafi993/Ramdajs-snippets-vscode/blob/master/ramdalogo.PNG",
     "categories": [
         "Snippets"
     ],
