@@ -1,26 +1,33 @@
 {
-  "name": "Ramdajs-snippets-vscode",
-  "version": "1.0.0",
-  "description": "This repo contains ramdaJs snippets for vscode and it is not complete and work is in progress so as to provide complete snippets with documentation in the description of the snippet .You are encouraged to give pull request so as to speed up the process.",
-  "main": "missingfn.js",
-  "scripts": {
-    "build":"node ./snippetgenerator.js",
-    "missing":"node ./missingfn.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Rafi993/Ramdajs-snippets-vscode.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Rafi993/Ramdajs-snippets-vscode/issues"
-  },
-  "homepage": "https://github.com/Rafi993/Ramdajs-snippets-vscode#readme",
-  "dependencies": {
-    "ramda": "^0.23.0",
-    "strip-json-comments": "^2.0.1"
-  }
+    "name": "ramdajs-snippets",
+    "displayName": "Ramdajs snippets",
+    "description": "Snippets for RamdaJs",
+    "version": "0.0.1",
+    "publisher": "user93",
+    "engines": {
+        "vscode": "^1.5.0"
+    },
+    "icon": "ramdalogo.png",
+    "categories": [
+        "Snippets"
+    ],
+    "keywords": ["RamdaJs","Vscode","snippets"],
+    "author": "rafi993",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Rafi993/Ramdajs-snippets-vscode/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Rafi993/Ramdajs-snippets-vscode.git"
+    },
+    "contributes": {
+        "snippets": [
+            {
+                "language": "js",
+                "path": "./snippets/snippets.json"
+            }
+        ]
+    },
+    "homepage": "https://github.com/Rafi993/Ramdajs-snippets-vscode#readme"
 }
