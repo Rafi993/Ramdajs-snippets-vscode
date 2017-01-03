@@ -3,19 +3,15 @@ This repo contains ramdaJs snippets for vscode and it is not complete and work i
 
 Things to be done
 
-##0.0.1
 
-- [ ] Add all missing functions to the snippet ( run `node missingfn.js` to get list of missing fn)
+##0.0.1
+- [x] Add all missing functions to the snippet ( run `node missingfn.js` to get list of missing fn)
+- [x] Automate snippet generation from ramda docs
 - [ ] Ability to open ramda docs by ctrl+click on the function
-- [ ] Show depericated warning for depericated functions
 - [ ] Publish the extension in the store
 
 ##0.0.2
-
-- [ ] Automate snippet generation from ramda docs
+- [ ] Show depericated warning for depericated functions
 - [ ] Produce partial builds using [search script](https://github.com/ramda/ramda/pull/2026)
-
-##0.0.3
-
 - [ ] Ramda repel within vscode
 - [ ] Ability search Ramda docs offline within vscode

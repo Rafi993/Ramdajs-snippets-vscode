@@ -4,6 +4,8 @@
   "description": "This repo contains ramdaJs snippets for vscode and it is not complete and work is in progress so as to provide complete snippets with documentation in the description of the snippet .You are encouraged to give pull request so as to speed up the process.",
   "main": "missingfn.js",
   "scripts": {
+    "build":"node ./snippetgenerator.js",
+    "missing":"node ./missingfn.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
