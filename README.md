@@ -7,6 +7,7 @@ Things to be done
 ##0.0.1
 - [x] Add all missing functions to the snippet ( run `node missingfn.js` to get list of missing fn)
 - [x] Automate snippet generation from ramda docs
+- [ ] Proper argument list in snippet body based on the function type
 - [ ] Ability to open ramda docs by ctrl+click on the function
 - [ ] Publish the extension in the store
 
