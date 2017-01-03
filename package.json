@@ -1,0 +1,24 @@
+{
+  "name": "Ramdajs-snippets-vscode",
+  "version": "1.0.0",
+  "description": "This repo contains ramdaJs snippets for vscode and it is not complete and work is in progress so as to provide complete snippets with documentation in the description of the snippet .You are encouraged to give pull request so as to speed up the process.",
+  "main": "missingfn.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rafi993/Ramdajs-snippets-vscode.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rafi993/Ramdajs-snippets-vscode/issues"
+  },
+  "homepage": "https://github.com/Rafi993/Ramdajs-snippets-vscode#readme",
+  "dependencies": {
+    "ramda": "^0.23.0",
+    "strip-json-comments": "^2.0.1"
+  }
+}
