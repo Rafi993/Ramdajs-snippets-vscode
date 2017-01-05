@@ -28,7 +28,7 @@ const docExtractor = (file) => {
 
 R.map(docExtractor,filepahts)
 
-fs.writeFile("../snippets/snippet.json", JSON.stringify(snippets, null,2), (err)=>{
+fs.writeFile("../snippets/javascript.json", JSON.stringify(snippets, null,2), (err)=>{
     if(err) {
         return console.log(err);
     }
