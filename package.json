@@ -2,7 +2,7 @@
     "name": "ramdajs-snippets",
     "displayName": "Ramdajs snippets",
     "description": "Snippets for RamdaJs",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "publisher": "user93",
     "engines": {
         "vscode": "^1.5.0"
