@@ -2,7 +2,7 @@
     "name": "ramdajs-snippets",
     "displayName": "Ramdajs snippets",
     "description": "Snippets for RamdaJs",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "user93",
     "engines": {
         "vscode": "^1.5.0"
@@ -10,7 +10,11 @@
     "categories": [
         "Snippets"
     ],
-    "keywords": ["RamdaJs","Vscode","snippets"],
+    "keywords": [
+        "RamdaJs",
+        "Vscode",
+        "snippets"
+    ],
     "author": "rafi993",
     "license": "ISC",
     "bugs": {

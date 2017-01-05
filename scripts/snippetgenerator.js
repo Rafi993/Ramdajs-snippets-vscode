@@ -7,11 +7,11 @@ const R = require('ramda'),
      fs = require('fs') ;
 
 let snippets = {};
-const filepahts = fs.readdirSync('./node_modules/ramda/src').filter(file => file.includes('.js'));
+const filepahts = fs.readdirSync('../node_modules/ramda/src').filter(file => file.includes('.js'));
 
 const docExtractor = (file) => {
 
-  let filedata = fs.readFileSync('./node_modules/ramda/src/'+file, "utf-8");
+  let filedata = fs.readFileSync('../node_modules/ramda/src/'+file, "utf-8");
   let comments = filedata
                     .split('/*')
                     .pop()
@@ -20,7 +20,7 @@ const docExtractor = (file) => {
   file.replace('.js','');
 
   snippets[file.replace('.js','')] = {
-                      "prefix": "R."+file.replace('.js',''),
+                      "prefix": "R"+file.replace('.js',''),
                       "body":["R."+file.replace('.js','')+"($value)"],
                       "description":comments.replace(/[*]/g, '')
                     }
@@ -28,7 +28,7 @@ const docExtractor = (file) => {
 
 R.map(docExtractor,filepahts)
 
-fs.writeFile("./snippet.json", JSON.stringify(snippets, null,2), (err)=>{
+fs.writeFile("../snippets/snippet.json", JSON.stringify(snippets, null,2), (err)=>{
     if(err) {
         return console.log(err);
     }
