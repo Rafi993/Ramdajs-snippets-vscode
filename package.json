@@ -25,11 +25,20 @@
         "url": "git+https://github.com/Rafi993/Ramdajs-snippets-vscode.git"
     },
     "contributes": {
-        "snippets": [
-            {
-                "language": "js",
-                "path": "./snippets/snippets.json"
-            }
+          "snippets": [
+      {
+        "language": "javascript",
+        "path": "./snippets/snippets.json"
+      }, {
+        "language": "typescript",
+        "path": "./snippets/snippets.json"
+      }, {
+        "language": "javascriptreact",
+        "path": "./snippets/snippets.json"
+      }, {
+        "language": "typescriptreact",
+        "path": "./snippets/snippets.json"
+      }
         ]
     },
     "homepage": "https://github.com/Rafi993/Ramdajs-snippets-vscode#readme"
