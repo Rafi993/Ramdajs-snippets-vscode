@@ -44,5 +44,8 @@
             }
         ]
     },
-    "homepage": "https://github.com/Rafi993/Ramdajs-snippets-vscode#readme"
+    "homepage": "https://github.com/Rafi993/Ramdajs-snippets-vscode#readme",
+    "dependencies": {
+        "ramda": "^0.25.0"
+    }
 }
