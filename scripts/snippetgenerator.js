@@ -14,7 +14,10 @@ const filepahts = fs.readdirSync('../node_modules/ramda/src').filter(file => fil
  */
 const docExtractor = file => {
 
+  // read the file data
   let filedata = fs.readFileSync('../node_modules/ramda/src/'+file, "utf-8");
+
+  // extract comment section
   let comments = filedata
                     .split('/**')
                     .pop()
@@ -23,6 +26,7 @@ const docExtractor = file => {
   
   file.replace('.js','');
 
+  // get argument list for the functions
   let params = comments.match(/\s@param {([^}]*)}/g)
 
    if(params!==null)
