@@ -1,7 +1,6 @@
 /***
  *  This file is used to generate snippets from JSDOCS of RamdaJS
- *  
- * */
+ **/
 
 const R = require('ramda'),
      fs = require('fs') ;
@@ -9,26 +8,50 @@ const R = require('ramda'),
 let snippets = {};
 const filepahts = fs.readdirSync('../node_modules/ramda/src').filter(file => file.includes('.js'));
 
-const docExtractor = (file) => {
+/**
+ * This extracts the jsdocs from given file
+ * @param {String} file "Name of the ramda js function file"
+ */
+const docExtractor = file => {
 
   let filedata = fs.readFileSync('../node_modules/ramda/src/'+file, "utf-8");
   let comments = filedata
-                    .split('/*')
+                    .split('/**')
                     .pop()
                     .split('*/')[0]
+                    .replace(/[*]/g, '')
   
   file.replace('.js','');
 
+  let params = comments.match(/\s@param {([^}]*)}/g)
+
+   if(params!==null)
+     params = params.map(x=>x.replace(' @param ','')
+                    .replace('{','')
+                    .replace('}',''))
+   else
+     params = []
+
+  console.log(file, params)
+  
+
   snippets[file.replace('.js','')] = {
-                      "prefix": "R"+file.replace('.js',''),
-                      "body":["R."+file.replace('.js','')+"($value)"],
-                      "description":comments.replace(/[*]/g, '')
+                      "prefix": "R" + file.replace('.js',''),
+                      "body":["R." + file.replace('.js','') + "("+
+                                     params.reduce((acc,val, i) => {
+                                      if(val==='') val='[any]'
+                                      return i!==0 ? acc +', $'+ val : '$'+ val
+                                     }
+                                      ,'') + ")" ],
+                      "description":comments
                     }
 }
 
+// Map all the files in the src and extract jsdocs for it
 R.map(docExtractor,filepahts)
 
-fs.writeFile("../snippets/javascript.json", JSON.stringify(snippets, null,2), (err)=>{
+// write the extracted docs back to the the file
+fs.writeFile("../snippets/snippets.json", JSON.stringify(snippets, null,2), (err)=>{
     if(err) {
         return console.log(err);
     }
