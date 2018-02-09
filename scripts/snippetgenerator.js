@@ -44,7 +44,7 @@ const docExtractor = file => {
                       "body":["R." + file.replace('.js','') + "("+
                                      params.reduce((acc,val, i) => {
                                       if(val==='') val='[any]'
-                                      return i!==0 ? acc +', $'+ val : '$'+ val
+                                      return i!==0 ? acc +', $'+ val + i : '$'+ val + i
                                      }
                                       ,'') + ")" ],
                       "description":comments
